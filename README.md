@@ -25,6 +25,9 @@ An advanced, yet simple, tunneling tool that uses TUN interfaces.
 > 
 > ![Ligolo Web](doc/webui.png)
 
+- [How to use with Sliver](#how-to-use-with-sliver)
+- [Debugging Sliver](#debugging-sliver)
+
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -43,6 +46,34 @@ An advanced, yet simple, tunneling tool that uses TUN interfaces.
 - [Credits](#credits)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## How to use with Sliver
+
+To integrate Ligolo-ng with Sliver, follow these steps:
+
+1. Build the Ligolo-ng agent and proxy using the provided Makefile:
+    ```sh
+    make
+    ```
+2. The built files will be automatically copied to `~/.sliver-client/aliases/ligolo-ng`.
+3. Restart the Sliver client.
+4. Use the alias in Sliver:
+    ```sh
+    sliver > ligolo-ng -- -connect 192.168.0.2:443 -ignore-cert
+    ```
+
+## Debugging Sliver
+
+If the `ligolo-ng` command is not recognized, follow these steps:
+
+1. Ensure the binaries are compiled.
+2. Copy the binaries to `~/.sliver-client/aliases/ligolo-ng`.
+3. Load the alias in Sliver:
+    ```sh
+    sliver > aliases load /home/<USERNAME>/.sliver-client/aliases/ligolo-ng/alias.json
+    ```
+
+If you encounter a `Connection error: keepalive timeout`, use the compiled proxy client located in `~/.sliver-client/aliases/ligolo-ng`. If the issue persists, compile a new proxy client.
 
 ## Introduction
 
@@ -141,3 +172,4 @@ When using *nmap*, you should use `--unprivileged` or `-PE` to avoid false posit
 
 - Nicolas Chatelain <nicolas -at- chatelain.me>
 - Jeremie Bedjai (Ligolo-ng-Web)
+- KriyosArcane (sliver-ligolo-ng)
