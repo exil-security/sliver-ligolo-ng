@@ -1,10 +1,10 @@
 {
   "name": "Ligolo-ng",
-  "version": "0.8.2",
+  "version": "1.0.0",
   "command_name": "ligolo-ng",
   "original_author": "nicocha30",
   "repo_url": "https://github.com/nicocha30/ligolo-ng",
-  "help": "An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface.",
+  "help": "Ligolo-ng is a simple, lightweight, and fast reverse proxy for pentesters.",
   "entrypoint": "Main",
   "allow_args": true,
   "default_args": "",
